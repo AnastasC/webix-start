@@ -1,0 +1,115 @@
+body {
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    width: 100vw;
+}
+
+.webix_toolbar {
+    background-color: #6f6d92;
+}
+
+.webix_toolbar .webix_el_label .webix_el_box {
+    color: white;
+    font-size: 18px;
+}
+
+.button_header .webix_button {
+    transition: all 0.5s linear;
+}
+
+.button_header .webix_button,
+.button_header .webix_button:hover,
+.button_header .webix_button:focus {
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+}
+
+.button_header .webix_button:hover,
+.button_header .webix_button:focus {
+    border: 1px solid white;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.button_header .wxi-user:before {
+    color: white;
+}
+
+
+.button_form-green .webix_button,
+.button_form-red .webix_button {
+    color: white;
+    text-transform: capitalize;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+}
+
+.button_form-green .webix_button {
+    background-color: rgba(45, 131, 45, 0.8);
+}
+
+.button_form-green .webix_button:hover,
+.button_form-green .webix_button:focus {
+    background-color: rgba(45, 131, 45, 0.1);
+    color: rgba(45, 131, 45, 1);
+    border: 1px solid rgba(45, 131, 45, 0.6);
+}
+
+.button_form-red .webix_button {
+    background-color: rgba(167, 67, 45, 0.8);
+}
+
+.button_form-red .webix_button:hover,
+.button_form-red .webix_button:focus {
+    background-color: rgba(167, 67, 45, 0.1);
+    color: rgba(167, 67, 45, 1);
+    border: 1px solid rgba(167, 67, 45, 0.6);
+}
+
+.button_form-green .webix_button:hover,
+.button_form-green .webix_button:focus,
+.button_form-red .webix_button:hover,
+.button_form-red .webix_button:focus {
+    border-radius: 5px;
+    box-shadow: 2px 3px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.webix_list {
+    background-color: transparent;
+    font-size: 18px;
+}
+
+.webix_list,
+.webix_list_item,
+.webix_list_item:hover {
+    border: none;
+}
+
+.webix_list_item:hover {
+    background-color: #c8c7ef;
+}
+
+.webix_layout_form {
+    border: none;
+}
+
+
+.label_connected .webix_el_box {
+    font-size: 16px;
+    color: rgb(45, 167, 14);
+    text-transform: capitalize;
+}
+
+.webix_template {
+    text-align: center;
+}
+
+.footer_link {
+    text-decoration: none;
+    color: rgb(21, 21, 177);
+    transition: all 0.3s linear;
+}
+
+.footer_link:hover {
+    color: rgb(200, 25, 25);
+}
