@@ -4,13 +4,17 @@ body {
     width: 100vw;
 }
 
-.webix_toolbar {
+.toolbar_header {
     background-color: #6f6d92;
 }
 
-.webix_toolbar .webix_el_label .webix_el_box {
+.toolbar_header .webix_el_label .webix_el_box {
     color: white;
     font-size: 18px;
+}
+
+.toolbar_main {
+    background-color: #c9c9c9;
 }
 
 .button_header .webix_button {
@@ -86,7 +90,7 @@ body {
 }
 
 .webix_list_item:hover {
-    background-color: #c8c7ef;
+    background-color: #9292a0;
 }
 
 .webix_layout_form {
