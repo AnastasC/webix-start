@@ -9,6 +9,7 @@ var header = {
     height: 50,
     paddingX: 10,
     view:"toolbar",
+    css: "toolbar_header",
     elements:[
         { 
             view: "label",
@@ -28,6 +29,8 @@ var header = {
 };
 
 var listMain = {
+    view: "toolbar",
+    css: "toolbar_main",
     rows: [
         {
             view: "list",
