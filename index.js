@@ -30,6 +30,7 @@ const header = {
 
 const listMain = {
     view: "layout",
+    css: "list_layout_main",
     rows: [
         {
             view: "list",
