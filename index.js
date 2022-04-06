@@ -79,8 +79,7 @@ const formMain = {
                     cols: [
                         { 
                             view: "button", 
-                            label: "Add new", 
-                            type: "form",
+                            label: "Add new",
                             css: "webix_primary",
                         },
                         {   view: "button",
