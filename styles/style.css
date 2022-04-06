@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.list_layout_main {
+    background-color: rgb(201, 203, 203);
+}
+
+.list_main,
+.list_main .webix_list_item,
+.list_main .webix_list_item:hover {
+    background-color: transparent;
+    border: none;
+}
+
+.template_connected {
+    background-color: transparent;
+    text-align: center;
+    font-size: 16px;
+    color: rgb(45, 167, 14);
+    border: none;
+}
+
+.template_footer {
+    text-align: center;
+}
