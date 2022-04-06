@@ -1,16 +1,16 @@
-var dataList = ["Dashboard", "Users", "Products", "Locations"];
-var dataFormImputs = ["Title", "Year", "Rating", "Votes"];
-var inputs =   dataFormImputs.map( el => {
+const dataList = ["Dashboard", "Users", "Products", "Locations"];
+const dataFormImputs = ["Title", "Year", "Rating", "Votes"];
+const inputs =   dataFormImputs.map( el => {
     return { view: "text", label: el };
 });
-var linkFooter = "https://webix.com/";
+const linkFooter = "https://webix.com/";
 
-var header = {
+const header = {
     height: 50,
     paddingX: 10,
-    view:"toolbar",
-    css: "toolbar_header",
-    elements:[
+    view: "toolbar",
+    css: "webix_dark",
+    elements: [
         { 
             view: "label",
             label: "My App",
@@ -21,35 +21,33 @@ var header = {
             view: "button",
             label: "Profile",
             width: 150,
-            type:"icon", 
-            icon:"wxi-user",
-            css: "button_header",
+            type: "icon", 
+            icon: "wxi-user",
+            css: "webix_transparent",
         },
     ],
 };
 
-var listMain = {
-    view: "toolbar",
-    css: "toolbar_main",
+const listMain = {
+    view: "layout",
     rows: [
         {
             view: "list",
             width: 200,
-            autoheight: true,
             scroll: false,
             data: dataList,
+            css: "list_main"
         },
         { },
-        { 
-            view: "label", 
-            label: `<span class="webix_icon wxi-check"></span> Connected`,
-            css: "label_connected",
-            align: "center",
-        }
+        {  
+            template: `<span class="webix_icon wxi-check"></span> Connected`,
+            autoheight: true,
+            css: "template_connected",
+        },
     ],
 };
 
-var datatableMain = {
+const datatableMain = {
     view: "datatable",
     data: small_film_set,
     autoConfig: true,
@@ -58,39 +56,44 @@ var datatableMain = {
           
 };
 
-var formMain = {
+const formMain = {
     rows: [
         {
             view: "form",
-            elementsConfig: { margin: 10 },
+            elementsConfig: { 
+                margin: 10, 
+            },
+            borderless: true,
             elements: [
                 { 
-                    view: "fieldset", 
-                    label: "edit films", 
-                    body: { rows: inputs },
+                    rows: [
+                            {
+                                type: "section", 
+                                template: "Edit films",
+                            },
+                            ...inputs,
+                    ],
                 },
                 { 
                     cols: [
                         { 
-                            view:"button", 
-                            label: "add new", 
-                            type:"form",
-                            css: "button_form-green",
+                            view: "button", 
+                            label: "Add new", 
+                            type: "form",
+                            css: "webix_primary",
                         },
-                        {   view:"button",
-                            label: "clear",
-                            css: "button_form-red",
+                        {   view: "button",
+                            label: "Clear",
                         },
                     ],
                 },
             ],
         },
         { },
-    ],
-            
+    ],         
 };
 
-var main = {
+const main = {
     cols: [
         listMain,
         { view:"resizer"},
@@ -99,9 +102,10 @@ var main = {
     ],
 };
 
-var footer = {
+const footer = {
     template: `The software is provided by <a href="${linkFooter}" class="footer_link" target="_blank">${linkFooter}</a>. All rights reserved (c).`,
     autoheight: true,
+    css: "template_footer",
 };
 
 webix.ui({
