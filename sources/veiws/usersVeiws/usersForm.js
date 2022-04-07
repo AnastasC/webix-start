@@ -14,7 +14,7 @@ const usersForm = {
                     name: "name",
                     on: {
                         onTimedKeyPress: () => {
-                            const item = $$("users_form").getValue().toLowerCase();
+                            const item = $$("users_form").getValues().name.toLowerCase();
 
                             $$("usersList").filter((obj) => obj.name.toLowerCase().indexOf(item) !== -1); 
                         },
@@ -24,15 +24,13 @@ const usersForm = {
                     view: "button", 
                     label: "Sort asc",
                     width: 100,
-                    //i have no idea what to sort
-                    click: () => console.log('sort'),
+                    click: () => $$("usersList").sort("#name#", "asc"),
                 },
                 { 
                     view: "button", 
                     label: "Sort desc",
                     width: 100,
-                    //i have no idea what to sort
-                    click: () => console.log('sort'),
+                    click: () => $$("usersList").sort("#name#", "desc"),
                 },
             ],
         },

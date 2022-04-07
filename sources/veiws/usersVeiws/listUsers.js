@@ -1,11 +1,11 @@
 const usersList = {
     view: "list",
     id: "usersList",
-    template: "#name# from #country# {common.trashIcon()}",
+    template: `#name# from #country#  <span style="float:right;" class='webix_icon wxi-close'></span>`,
     select: true,
     editable: true,
     onClick: {
-        "wxi-trash": (e, id) => $$("usersList").remove(id),
+        "wxi-close": (e, id) => $$("usersList").remove(id),
     },
 };
 
