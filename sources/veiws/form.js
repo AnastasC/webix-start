@@ -1,4 +1,4 @@
-import { validateYear, validateVotes, validateRanking } from "../utils/validation.js";
+import { validateYear, validateVotes, validateRating } from "../utils/validation.js";
 import { FORM_VALIDATION_DATA as validation }  from "../../datas/data.js"
 
 const form = {
@@ -23,19 +23,19 @@ const form = {
             view: "text",
             label: "Year",
             name: "year",
-            invalidMessage: `Enter year between ${validation.year} and current`,
+            invalidMessage: `Enter year between ${validation.minYear} and current`,
         },
         { 
             view: "text",
             label: "Rating",
             name: "rating",
-            invalidMessage: `Enter rating above 0 and less than ${validation.rating}`,
+            invalidMessage: `Enter rating above 0 and less than ${validation.maxRating}`,
         },
         { 
             view: "text",
             label: "Votes",
             name: "votes",
-            invalidMessage: `Enter possitive votes and less than ${validation.votes}`,
+            invalidMessage: `Enter possitive votes and less than ${validation.maxVotes}`,
         },
         { 
             cols: [
@@ -46,11 +46,13 @@ const form = {
                     click: function() {
                         const form = $$("edit_films_forms");
 
-                        if(form.validate()) {
+                        if( form.validate() ) {
                             const item = form.getValues();
+
                             $$("films_datatable").add(item);
+                            form.clear();
                             webix.message("Film was added!");
-                        }
+                        };
                     },
                 },
                 {   view: "button",
@@ -60,15 +62,12 @@ const form = {
                           title: "Form is incomplete",
                           text: "Do you still want to continue?"
                         }).then(
-                          function() {
-                            const form = $$("edit_films_forms");
+                            function() {
+                                const form = $$("edit_films_forms");
 
-                            form.clear();
-                            form.clearValidation();
-                          }, 
-                          function() {
-                            return;
-                          },
+                                form.clear();
+                                form.clearValidation();
+                            },
                         );
                     },
                 },
@@ -81,10 +80,10 @@ const form = {
             return validateYear(value);
         },
         rating: function(value) {
-            return validateVotes(value);
+            return validateRating(value);
         },
         votes: function(value) {
-            return validateRanking(value);
+            return validateVotes(value);
         },
     },
 };

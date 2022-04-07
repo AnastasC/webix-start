@@ -1,24 +1,4 @@
-webix.ui({
-    view: "popup",
-    id: "profile_popup",
-    width: 300,
-    body:{
-      view: "list", 
-      data: [
-        { 
-            id: "1",
-            name: "Settings",
-        },
-        { 
-            id: "2",
-            name: "Log out",
-        },
-      ],
-      template: "#name#",
-      autoheight: true,
-      select: true,
-    },
-});
+import headerPopup from "../veiws/headerPopup.js"
 
 const header = {
     height: 50,
@@ -31,7 +11,7 @@ const header = {
             label: "My App",
             css: "label_header",
         },
-        {},
+        { },
         { 
             view: "button",
             label: "Profile",
@@ -39,7 +19,7 @@ const header = {
             type: "icon", 
             icon: "wxi-user",
             css: "webix_transparent",
-            popup: "profile_popup",
+            popup: headerPopup,
         },
     ],
 };

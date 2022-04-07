@@ -5,15 +5,15 @@ const isInteger = (num) => Number.isInteger(+num);
 const validateYear = (num) => {
     const currentYear = new Date().getFullYear();
 
-    return isInteger(num) && +num >= validation.year && +num <= currentYear;
+    return isInteger(num) && +num >= validation.minYear && +num <= currentYear;
 };
 
 const validateVotes = (num) => {
-    return isInteger(num) && num > 0 && num < validation.votes;
+    return isInteger(num) && num > 0 && num < validation.maxVotes;
 };
 
-const validateRanking = (num) => {
-    return num > 0 && num < validation.rating;
+const validateRating = (num) => {
+    return num > 0 && num < validation.maxRating;
 };
 
-export { validateYear, validateVotes, validateRanking };
+export { validateYear, validateVotes, validateRating };
