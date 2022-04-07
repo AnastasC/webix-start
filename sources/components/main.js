@@ -1,5 +1,4 @@
-import datatableMain from "../veiws/datatable.js";
-import form from "../veiws/form.js";
+import cell from "../veiws/cell.js";
 import list from "../veiws/list.js";
 
 const main = {
@@ -18,13 +17,7 @@ const main = {
             ],
         },
         { view:"resizer"},
-        datatableMain,
-        {
-            rows: [
-                form,
-                { },
-            ],  
-        }       
+        cell,
     ],
 };
 

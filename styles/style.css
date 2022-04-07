@@ -24,3 +24,8 @@ body {
 .template_footer {
     text-align: center;
 }
+
+.myhover.webix_cell{
+    background: rgb(236, 236, 236);
+    cursor: pointer;
+}
