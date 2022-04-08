@@ -12,7 +12,7 @@ const usersForm = {
             name: "name",
             on: {
                 onTimedKeyPress: () => {
-                    const item = $$("users_form").getValues().name.toLowerCase();
+                    const item = $$("list_input").getValue().toLowerCase();
 
                     $$("usersList").filter((obj) => obj.name.toLowerCase().indexOf(item) !== -1); 
                 },

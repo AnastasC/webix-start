@@ -55,8 +55,6 @@ const datatable = {
             const itemValues = $$("films_datatable").getItem(id);
 
             $$("edit_films_forms").setValues(itemValues);
-            console.log( $$("edit_films_forms").getValues())
-           
         },
     },
 };

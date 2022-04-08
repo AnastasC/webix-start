@@ -11,5 +11,3 @@ webix.ui({
         footer,
     ],
 });
-
-// $$("edit_films_forms").bind("films_datatable");
