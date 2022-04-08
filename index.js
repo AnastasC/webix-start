@@ -12,8 +12,4 @@ webix.ui({
     ],
 });
 
-
-$$("films_datatable").load("./datas/dashdoard.js");
-$$("usersList").load("./datas/users.js");
-$$("usersChart").load("./datas/users.js");
-// $$("productsTreeTable").load("./datas/products.js");
+// $$("edit_films_forms").bind("films_datatable");

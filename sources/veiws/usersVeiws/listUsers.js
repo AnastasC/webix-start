@@ -5,8 +5,16 @@ const usersList = {
     select: true,
     editable: true,
     css: "users_list",
+    url: "./datas/users.js",
     onClick: {
-        "wxi-close": (e, id) => $$("usersList").remove(id),
+        "wxi-close": (e, id) => {
+            webix.confirm({
+                title: "Delete...",
+                text: "Do you still want to delete this user?",
+              }).then(
+                  () => $$("usersList").remove(id),
+            );
+        },
     },
 };
 

@@ -10,14 +10,19 @@ const treeTable = {
         { 
             id: "title",
             header: "Title",
-            template:"{common.treetable()} #value#",
+            template:"{common.treetable()} #title#",
+            fillspace: true,
         },
         { 
             id: "price",
             header: "Price",
+            width: 200,
         },
     ],
-    url: "../../../datas/products.js",
+    scrollX: false,
+    select: true,
+    url: "./datas/products.js",
+    ready: () => $$("productsTreeTable").openAll(),
 };
 
 export default treeTable;

@@ -8,9 +8,7 @@ const list = {
     css: "list_main",
     select: true,
     on: {
-        onAfterSelect: function(id) { 
-          $$(id).show();
-        },
+        onAfterSelect: (id) => $$(id).show(),
     },
 };
 

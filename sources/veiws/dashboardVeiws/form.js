@@ -45,13 +45,21 @@ const form = {
                     css: "webix_primary",
                     click: function() {
                         const form = $$("edit_films_forms");
+                        const table = $$("films_datatable");
 
                         if( form.validate() ) {
-                            const item = form.getValues();
-
-                            $$("films_datatable").add(item);
+                            const formValues = form.getValues();
+                            let message = "Film was added!";
+                            
+                            if( formValues.id ) {
+                                table.updateItem(formValues.id, formValues);
+                                message = "Film was updated!";
+                            }
+                            else {
+                                table.add(formValues); 
+                            };
                             form.clear();
-                            webix.message("Film was added!");
+                            webix.message(message);
                         };
                     },
                 },
@@ -60,7 +68,7 @@ const form = {
                     click: function() {
                         webix.confirm({
                           title: "Form is incomplete",
-                          text: "Do you still want to continue?"
+                          text: "Do you still want to continue?",
                         }).then(
                             function() {
                                 const form = $$("edit_films_forms");
@@ -76,15 +84,9 @@ const form = {
     ],
     rules: {
         title: webix.rules.isNotEmpty,
-        year: function(value) {
-            return validateYear(value);
-        },
-        rating: function(value) {
-            return validateRating(value);
-        },
-        votes: function(value) {
-            return validateVotes(value);
-        },
+        year: (value) => validateYear(value),
+        rating: (value) => validateRating(value),
+        votes: (value) => validateVotes(value),
     },
 };
 

@@ -30,7 +30,9 @@ const cell = {
         },
         { 
             id: "Products",
-            treeTable,
+            rows: [
+                treeTable,
+            ],
         },
         { 
             id: "Locations",

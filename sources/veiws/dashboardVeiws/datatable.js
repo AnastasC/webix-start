@@ -9,23 +9,23 @@ const datatable = {
         },
         { 
             id: "title",
-            header: ["Filt title", {content:"textFilter"}],
+            header: [ "Filt title", { content: "textFilter" }, ],
             sort:"string",
             fillspace: true,
         },
         { 
             id: "year",
-            header: ["Year",  {content:"textFilter"}],
+            header: [ "Year",  { content: "numberFilter" }, ],
             sort:"int",
         },
         { 
             id: "rating",
-            header: ["Rating", {content:"textFilter"}],
+            header: [ "Rating", { content: "numberFilter" }, ],
             sort:"int",
         },
         { 
             id: "votes",
-            header: ["Votes",  {content:"textFilter"}],
+            header: [ "Votes", { content: "numberFilter" }, ],
             sort:"int",
         },
         { 
@@ -35,10 +35,29 @@ const datatable = {
         },
     ],
     scrollX: false,
+    select: true,
+    editable: true,
     hover: "myhover",
     gravity: 2.2,
+    url: "./datas/dashboard.js",
     onClick: {
-        "wxi-trash": (e, id) => $$("films_datatable").remove(id),
+        "wxi-trash": (e, id) => {
+            webix.confirm({
+                title: "Delete...",
+                text: "Do you still want to delete this film?",
+              }).then(
+                  () => $$("films_datatable").remove(id),
+            );
+        },
+    },
+    on: {
+        onAfterSelect: (id) => {
+            const itemValues = $$("films_datatable").getItem(id);
+
+            $$("edit_films_forms").setValues(itemValues);
+            console.log( $$("edit_films_forms").getValues())
+           
+        },
     },
 };
 
