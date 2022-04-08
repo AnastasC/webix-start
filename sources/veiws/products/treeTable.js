@@ -16,7 +16,7 @@ const treeTable = {
         { 
             id: "price",
             header: "Price",
-            width: 200,
+            fillspace: true,
         },
     ],
     scrollX: false,
