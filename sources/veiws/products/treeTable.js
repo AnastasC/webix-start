@@ -3,7 +3,7 @@ const treeTable = {
     id: "productsTreeTable",
     columns:[
         { 
-            id: "order",
+            id: "id",
             header: "",
             width: 50,
         },
@@ -16,7 +16,8 @@ const treeTable = {
             id: "price",
             header: "Price",
         },
-      ],
+    ],
+    url: "../../../datas/products.js",
 };
 
 export default treeTable;

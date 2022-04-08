@@ -14,11 +14,6 @@ webix.ui({
 
 
 $$("films_datatable").load("./datas/dashdoard.js");
-$$("usersList").load("./datas/users.js").then(
-    //i was trying to add class to the first 5 items of te list, but cant get them
-    console.log($$("usersList").data)
-);
+$$("usersList").load("./datas/users.js");
 $$("usersChart").load("./datas/users.js");
-
-//treetable is underfined and i dont know why
-$$("productsTreeTable").load("./datas/dashdoard.js");
+// $$("productsTreeTable").load("./datas/products.js");
