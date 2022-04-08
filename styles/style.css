@@ -24,3 +24,12 @@ body {
 .template_footer {
     text-align: center;
 }
+
+.myhover.webix_cell{
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+.users_list .webix_list_item:nth-child(-n+5) {
+    background-color: rgb(241, 215, 215);
+}
