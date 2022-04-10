@@ -1,3 +1,5 @@
+import getRandomNumber from "../../utils/random.js";
+
 const datatable = {
     view: "datatable",
     id: "films_datatable",
@@ -13,10 +15,14 @@ const datatable = {
             sort:"string",
             fillspace: true,
         },
-        { 
-            id: "year",
-            header: [ "Year",  { content: "numberFilter" }, ],
-            sort:"int",
+        {   id: "categoryId",
+            header: [ "Category", { content: "selectFilter"}, ],
+            collection: [
+                { "id": 1, "value": "Drama" },
+                { "id": 2, "value": "Fiction" },
+                { "id": 3, "value": "Comedy" },
+                { "id": 4, "value": "Horror" },
+            ],
         },
         { 
             id: "rating",
@@ -29,6 +35,11 @@ const datatable = {
             sort:"int",
         },
         { 
+            id: "year",
+            header: "Year",
+            sort:"int",
+        },
+        { 
             id: "delete",
             header: "",
             template: "{common.trashIcon()}",
@@ -38,7 +49,6 @@ const datatable = {
     select: true,
     editable: true,
     hover: "myhover",
-    gravity: 2.2,
     url: "./datas/dashboard.js",
     onClick: {
         "wxi-trash": (e, id) => {
@@ -50,12 +60,19 @@ const datatable = {
             );
         },
     },
-    on: {
-        onAfterSelect: (id) => {
-            const itemValues = $$("films_datatable").getItem(id);
-
-            $$("edit_films_forms").setValues(itemValues);
-        },
+    scheme: {
+        $init: (obj) => {
+            // const { categoryId, rating, votes } = obj;
+            obj.categoryId = getRandomNumber(1, 4);
+            obj.rating = webix.Number.parse( obj.rating, {
+                decimalSize: 2, groupSize: 3, 
+                decimalDelimiter: ",", groupDelimiter: "'",
+            })
+            obj.votes = webix.Number.parse( obj.votes, {
+                decimalSize: 2, groupSize: 3, 
+                decimalDelimiter: ".", groupDelimiter: "'",
+            })
+        }
     },
 };
 

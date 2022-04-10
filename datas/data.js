@@ -6,5 +6,7 @@ const FORM_VALIDATION_DATA = {
     maxVotes: 100000,
     maxRating: 10,
 };
+const RANDOM_NAME = [ "Masha", "Pasha", "Dasha", "Misha", ];
+const RANDOM_COUNTRY = [ "Germany", "USA", "Canada", "France", "China", "Russia", "Italy", "Spain", ];
 
-export { DATA_LIST, DATA_LINK_FOOTER, FORM_VALIDATION_DATA };
+export { DATA_LIST, DATA_LINK_FOOTER, FORM_VALIDATION_DATA, RANDOM_NAME, RANDOM_COUNTRY, };

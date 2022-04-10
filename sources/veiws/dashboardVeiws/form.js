@@ -8,6 +8,7 @@ const form = {
         margin: 10, 
     },
     borderless: true,
+    width: 400,
     elements: [
         {
             type: "section", 
@@ -43,23 +44,14 @@ const form = {
                     view: "button", 
                     label: "Add new",
                     css: "webix_primary",
-                    click: function() {
+                    click: () => {
                         const form = $$("edit_films_forms");
-                        const table = $$("films_datatable");
 
-                        if( form.validate() ) {
-                            const formValues = form.getValues();
-                            let message = "Film was added!";
-                            
-                            if( formValues.id ) {
-                                table.updateItem(formValues.id, formValues);
-                                message = "Film was updated!";
-                            }
-                            else {
-                                table.add(formValues); 
-                            };
+                        if( form.isDirty() ) {
+                            if( !form.validate() ) return false;
+                            form.save();
                             form.clear();
-                            webix.message(message);
+                            webix.message("Film was updated!");
                         };
                     },
                 },

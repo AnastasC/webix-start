@@ -8,12 +8,11 @@ const validateYear = (num) => {
     return isInteger(num) && +num >= validation.minYear && +num <= currentYear;
 };
 
-const validateVotes = (num) => {
-    return isInteger(num) && num > 0 && num < validation.maxVotes;
-};
+const validateVotes = (num) => isInteger(num) && num > 0 && num < validation.maxVotes;
 
-const validateRating = (num) => {
-    return num > 0 && num < validation.maxRating;
-};
 
-export { validateYear, validateVotes, validateRating };
+const validateRating = (num) => num > 0 && num < validation.maxRating;
+
+const validatePrice = (num) => num > 0;
+
+export { validateYear, validateVotes, validateRating, validatePrice };
