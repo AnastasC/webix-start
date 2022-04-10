@@ -1,9 +1,10 @@
 import datatable from "./dashboardVeiws/datatable.js";
 import form from "./dashboardVeiws/form.js";
-import usersList from "./usersVeiws/listUsers.js";
+import usersList from "./usersVeiws/usersList.js";
 import usersChart from "./usersVeiws/chart.js";
 import usersForm from "./usersVeiws/usersForm.js";
 import treeTable from "./products/treeTable.js";
+import tabbar from './dashboardVeiws/tabbar.js';
 
 const cell = {
     view: "multiview",
@@ -11,7 +12,12 @@ const cell = {
         { 
             id: "Dashboard",
             cols: [ 
-                datatable,
+                {
+                    rows: [
+                        tabbar,
+                        datatable,
+                    ],
+                },
                 {
                     rows: [
                         form,

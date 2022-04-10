@@ -1,3 +1,6 @@
+import categories from "../../../datas/variables.js";
+import getRandomNumber from "../../utils/random.js";
+
 const datatable = {
     view: "datatable",
     id: "films_datatable",
@@ -13,9 +16,13 @@ const datatable = {
             sort:"string",
             fillspace: true,
         },
+        {   id: "categoryId",
+            header: "Category",
+            collection: categories.categories,
+        },
         { 
             id: "year",
-            header: [ "Year",  { content: "numberFilter" }, ],
+            header: "Year",
             sort:"int",
         },
         { 
@@ -38,7 +45,7 @@ const datatable = {
     select: true,
     editable: true,
     hover: "myhover",
-    gravity: 2.2,
+    // gravity: 2.2,
     url: "./datas/dashboard.js",
     onClick: {
         "wxi-trash": (e, id) => {
@@ -50,12 +57,19 @@ const datatable = {
             );
         },
     },
-    on: {
-        onAfterSelect: (id) => {
-            const itemValues = $$("films_datatable").getItem(id);
-
-            $$("edit_films_forms").setValues(itemValues);
-        },
+    scheme: {
+        $init: (obj) => {
+            // const { categoryId, rating, votes } = obj;
+            obj.categoryId = getRandomNumber(1, 4);
+            obj.rating = webix.Number.parse( obj.rating, {
+                decimalSize: 2, groupSize: 3, 
+                decimalDelimiter: ",", groupDelimiter: "'",
+            })
+            obj.votes = webix.Number.parse( obj.votes, {
+                decimalSize: 2, groupSize: 3, 
+                decimalDelimiter: ".", groupDelimiter: "'",
+            })
+        }
     },
 };
 
