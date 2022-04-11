@@ -1,4 +1,4 @@
-const DATA_LIST = [ "Dashboard", "Users", "Products", "Locations", ];
+const DATA_LIST = [ "Dashboard", "Users", "Products", "Admin", ];
 const DATA_LINK_FOOTER = "https://webix.com/";
 
 const FORM_VALIDATION_DATA = {

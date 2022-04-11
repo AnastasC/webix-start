@@ -3,7 +3,6 @@ const usersChart = {
   id: "users_chart",
   type: "bar",
   value: "#usersCount#",
-  // value: "count",
   xAxis: {
     template: "#country#",
     title: "Country"

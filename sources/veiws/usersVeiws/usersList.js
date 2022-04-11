@@ -1,3 +1,5 @@
+import { users } from "../../../datas/collection.js";
+
 const usersList = {
     view: "editablelist",
     id: "users_list",
@@ -6,14 +8,14 @@ const usersList = {
     editable: true,
     editor: "text",
     editValue: "name",
-    url: "./datas/users.js",
+    editaction: "dblclick",
     onClick: {
         "wxi-close": (e, id) => {
             webix.confirm({
                 title: "Delete...",
                 text: "Do you still want to delete this user?",
               }).then(
-                  () => $$("users_list").remove(id),
+                  () => users.remove(id),
             );
         },
     },

@@ -1,5 +1,6 @@
 import getRandomNumber from "../../utils/random.js";
 import { RANDOM_NAME, RANDOM_COUNTRY } from "../../../datas/data.js";
+import { users } from "../../../datas/collection.js";
 
 const usersForm = {
     view: "form",
@@ -39,7 +40,7 @@ const usersForm = {
             id: "addUser",
             width: 100,
             click: () => 
-                $$("users_list").add({ 
+                users.add({ 
                     name: RANDOM_NAME[getRandomNumber(0, RANDOM_NAME.length - 1)],
                     age: getRandomNumber(18, 100),
                     country: RANDOM_COUNTRY[getRandomNumber(0, RANDOM_COUNTRY.length - 1)], 

@@ -1,7 +1,11 @@
 import footer from './sources/components/footer.js';
 import main from './sources/components/main.js';
 import header from './sources/components/header.js';
-import { bindDatatebele, registerFilterToDatateble, syncUsersList } from "./sources/actions/actions.js";
+import { bindDatatebele,
+    registerFilterToDatateble,
+    syncAdminsDatateble,
+    syncUsersListToCollection,
+    syncUsersChartToCollection } from "./sources/actions/actions.js";
 
 webix.protoUI({
     name: "editablelist"
@@ -18,4 +22,6 @@ webix.ui({
 
 bindDatatebele();
 registerFilterToDatateble();
-syncUsersList();
+syncAdminsDatateble();
+syncUsersListToCollection();
+syncUsersChartToCollection();
