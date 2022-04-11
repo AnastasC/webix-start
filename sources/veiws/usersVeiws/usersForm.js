@@ -1,3 +1,6 @@
+import getRandomNumber from "../../utils/random.js";
+import { RANDOM_NAME, RANDOM_COUNTRY } from "../../../datas/data.js";
+
 const usersForm = {
     view: "form",
     id: "users_form",
@@ -14,7 +17,7 @@ const usersForm = {
                 onTimedKeyPress: () => {
                     const item = $$("list_input").getValue().toLowerCase();
 
-                    $$("usersList").filter((obj) => obj.name.toLowerCase().indexOf(item) !== -1); 
+                    $$("users_list").filter((obj) => obj.name.toLowerCase().indexOf(item) !== -1); 
                 },
             },
         },
@@ -22,13 +25,25 @@ const usersForm = {
             view: "button", 
             label: "Sort asc",
             width: 100,
-            click: () => $$("usersList").sort("#name#", "asc"),
+            click: () => $$("users_list").sort("#name#", "asc"),
         },
         { 
             view: "button", 
             label: "Sort desc",
             width: 100,
-            click: () => $$("usersList").sort("#name#", "desc"),
+            click: () => $$("users_list").sort("#name#", "desc"),
+        },
+        {
+            view: "button",
+            value: "Add user",
+            id: "addUser",
+            width: 100,
+            click: () => 
+                $$("users_list").add({ 
+                    name: RANDOM_NAME[getRandomNumber(0, RANDOM_NAME.length - 1)],
+                    age: getRandomNumber(18, 100),
+                    country: RANDOM_COUNTRY[getRandomNumber(0, RANDOM_COUNTRY.length - 1)], 
+                }, 0),        
         },
     ],
 };

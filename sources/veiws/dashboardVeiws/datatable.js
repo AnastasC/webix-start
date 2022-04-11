@@ -1,3 +1,5 @@
+import getRandomNumber from "../../utils/random.js";
+
 const datatable = {
     view: "datatable",
     id: "films_datatable",
@@ -13,19 +15,23 @@ const datatable = {
             sort:"string",
             fillspace: true,
         },
-        { 
-            id: "year",
-            header: [ "Year",  { content: "numberFilter" }, ],
-            sort:"int",
+        {   id: "categoryId",
+            header: [ "Category", { content: "selectFilter"}, ],
+            collection: "./datas/categories.js",
         },
         { 
             id: "rating",
-            header: [ "Rating", { content: "numberFilter" }, ],
+            header: [ "Rating", { content: "textFilter" }, ],
             sort:"int",
         },
         { 
             id: "votes",
-            header: [ "Votes", { content: "numberFilter" }, ],
+            header: [ "Votes", { content: "textFilter" }, ],
+            sort:"int",
+        },
+        { 
+            id: "year",
+            header: "Year",
             sort:"int",
         },
         { 
@@ -38,7 +44,6 @@ const datatable = {
     select: true,
     editable: true,
     hover: "myhover",
-    gravity: 2.2,
     url: "./datas/dashboard.js",
     onClick: {
         "wxi-trash": (e, id) => {
@@ -50,12 +55,18 @@ const datatable = {
             );
         },
     },
-    on: {
-        onAfterSelect: (id) => {
-            const itemValues = $$("films_datatable").getItem(id);
-
-            $$("edit_films_forms").setValues(itemValues);
-        },
+    scheme: {
+        $init: (obj) => {
+            obj.categoryId = getRandomNumber(1, 4);
+            obj.rating = webix.Number.parse( obj.rating, {
+                decimalSize: 1, groupSize: 1, 
+                decimalDelimiter: ",", groupDelimiter: ",",
+            })
+            obj.votes = webix.Number.parse( obj.votes, {
+                    decimalSize: 0, groupSize: 3, 
+                    decimalDelimiter: "", groupDelimiter: ",",
+            })
+        }
     },
 };
 

@@ -1,12 +1,17 @@
 const usersChart = {
   view: "chart",
-  id: "usersChart",
+  id: "users_chart",
   type: "bar",
-  value: "#age#",
-  url: "./datas/users.js",
+  value: "#usersCount#",
+  // value: "count",
   xAxis: {
-    template: "#age#",
-    title:"Age",
+    template: "#country#",
+    title: "Country"
+  },
+  yAxis: {
+    start: 0,
+    end: 10,
+    step: 2,
   },
 };
 
