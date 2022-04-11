@@ -24,8 +24,13 @@ const syncUsersList = () => {
         $$("users_chart").group({
             by: "country",
             map: {
-                age: [ "age", "count" ],
+                usersCount: [ "country", "count" ],
             },
+        });
+        $$("users_chart").sort({
+            by: "usersCount",
+            as: "int",
+            dir: "desc",
         });
     })
 };

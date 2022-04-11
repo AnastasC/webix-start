@@ -2,7 +2,8 @@ const usersChart = {
   view: "chart",
   id: "users_chart",
   type: "bar",
-  value: "#age#",
+  value: "#usersCount#",
+  // value: "count",
   xAxis: {
     template: "#country#",
     title: "Country"
