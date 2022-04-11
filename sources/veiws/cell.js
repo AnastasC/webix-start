@@ -3,7 +3,7 @@ import form from "./dashboardVeiws/form.js";
 import usersList from "./usersVeiws/usersList.js";
 import usersChart from "./usersVeiws/chart.js";
 import usersForm from "./usersVeiws/usersForm.js";
-import treeTable from "./products/treeTable.js";
+import treeTable from "./productsVeiws/treeTable.js";
 import tabbar from './dashboardVeiws/tabbar.js';
 
 const cell = {

@@ -17,21 +17,16 @@ const datatable = {
         },
         {   id: "categoryId",
             header: [ "Category", { content: "selectFilter"}, ],
-            collection: [
-                { "id": 1, "value": "Drama" },
-                { "id": 2, "value": "Fiction" },
-                { "id": 3, "value": "Comedy" },
-                { "id": 4, "value": "Horror" },
-            ],
+            collection: "./datas/categories.js",
         },
         { 
             id: "rating",
-            header: [ "Rating", { content: "numberFilter" }, ],
+            header: [ "Rating", { content: "textFilter" }, ],
             sort:"int",
         },
         { 
             id: "votes",
-            header: [ "Votes", { content: "numberFilter" }, ],
+            header: [ "Votes", { content: "textFilter" }, ],
             sort:"int",
         },
         { 
@@ -62,15 +57,14 @@ const datatable = {
     },
     scheme: {
         $init: (obj) => {
-            // const { categoryId, rating, votes } = obj;
             obj.categoryId = getRandomNumber(1, 4);
             obj.rating = webix.Number.parse( obj.rating, {
-                decimalSize: 2, groupSize: 3, 
-                decimalDelimiter: ",", groupDelimiter: "'",
+                decimalSize: 1, groupSize: 1, 
+                decimalDelimiter: ",", groupDelimiter: ",",
             })
             obj.votes = webix.Number.parse( obj.votes, {
-                decimalSize: 2, groupSize: 3, 
-                decimalDelimiter: ".", groupDelimiter: "'",
+                    decimalSize: 0, groupSize: 3, 
+                    decimalDelimiter: "", groupDelimiter: ",",
             })
         }
     },

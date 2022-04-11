@@ -42,17 +42,17 @@ const form = {
             cols: [
                 { 
                     view: "button", 
-                    label: "Add new",
+                    label: "Save",
                     css: "webix_primary",
                     click: () => {
                         const form = $$("edit_films_forms");
+                        
+                        if( !form.validate() ) return false;
 
-                        if( form.isDirty() ) {
-                            if( !form.validate() ) return false;
-                            form.save();
-                            form.clear();
-                            webix.message("Film was updated!");
-                        };
+                        form.save();
+                        form.clear();
+                        $$("films_datatable").clearSelection();
+                        webix.message("Film was updated!");
                     },
                 },
                 {   view: "button",
@@ -67,6 +67,7 @@ const form = {
 
                                 form.clear();
                                 form.clearValidation();
+                                $$("films_datatable").clearSelection();
                             },
                         );
                     },
