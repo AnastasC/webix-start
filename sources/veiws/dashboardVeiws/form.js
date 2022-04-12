@@ -1,5 +1,6 @@
 import { validateYear, validateVotes, validateRating } from "../../utils/validation.js";
 import { FORM_VALIDATION_DATA as validation }  from "../../../datas/data.js"
+import { categories } from "../../../datas/collection.js";
 
 const form = {
     view: "form",
@@ -37,6 +38,12 @@ const form = {
             label: "Votes",
             name: "votes",
             invalidMessage: `Enter possitive votes and less than ${validation.maxVotes}`,
+        },
+        {
+            view: "richselect",
+            label: "Category",
+            name: "categoryId",
+            options: categories,
         },
         { 
             cols: [

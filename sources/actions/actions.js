@@ -1,3 +1,5 @@
+import { categories, users } from "../../datas/collection.js";
+
 const bindDatatebele = () => $$("edit_films_forms").bind("films_datatable");
 
  const registerFilterToDatateble = () => {
@@ -19,8 +21,12 @@ const bindDatatebele = () => $$("edit_films_forms").bind("films_datatable");
     )
 };
 
-const syncUsersList = () => {
-    $$("users_chart").sync($$("users_list"), () => {
+const syncAdminsDatateble = () => $$("admins_datatable").sync(categories);
+
+const syncUsersListToCollection = () => $$("users_list").sync(users);
+
+const syncUsersChartToCollection = () => {
+    $$("users_chart").sync(users, () => {
         $$("users_chart").group({
             by: "country",
             map: {
@@ -33,8 +39,12 @@ const syncUsersList = () => {
             dir: "desc",
         });
     })
+}
+
+export { 
+    bindDatatebele,
+    registerFilterToDatateble,
+    syncAdminsDatateble, 
+    syncUsersListToCollection,
+    syncUsersChartToCollection,
 };
-
-
-
-export { bindDatatebele, registerFilterToDatateble, syncUsersList };

@@ -5,6 +5,8 @@ import usersChart from "./usersVeiws/chart.js";
 import usersForm from "./usersVeiws/usersForm.js";
 import treeTable from "./productsVeiws/treeTable.js";
 import tabbar from './dashboardVeiws/tabbar.js';
+import adminsDatatable from "./adminsVeiws/adminsDatatable.js";
+import adminsForm from "./adminsVeiws/adminsForm.js";
 
 const cell = {
     view: "multiview",
@@ -41,8 +43,11 @@ const cell = {
             ],
         },
         { 
-            id: "Locations",
-            template: "",
+            id: "Admin",
+            rows: [
+                adminsForm,
+                adminsDatatable,
+            ],
         },
     ],
 };

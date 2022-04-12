@@ -1,4 +1,5 @@
 import getRandomNumber from "../../utils/random.js";
+import { categories } from "../../../datas/collection.js";
 
 const datatable = {
     view: "datatable",
@@ -17,7 +18,7 @@ const datatable = {
         },
         {   id: "categoryId",
             header: [ "Category", { content: "selectFilter"}, ],
-            collection: "./datas/categories.js",
+            collection: categories,
         },
         { 
             id: "rating",
